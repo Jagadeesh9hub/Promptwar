@@ -4,8 +4,6 @@
 
 **Log daily activities, convert them to CO₂e with published emission factors, and get an actionable tip that targets your single biggest source of emissions.**
 
-No backend. No tracking. Everything is computed client-side and persisted in `localStorage`.
-
 ![React](https://img.shields.io/badge/React-18.3.1-149ECA?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.4_strict-3178C6?logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5.2-646CFF?logo=vite&logoColor=white)

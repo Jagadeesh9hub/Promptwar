@@ -1,0 +1,300 @@
+/*
+ * Palette is documented with WCAG contrast ratios in the README.
+ * All text/background pairs meet AA (>= 4.5:1).
+ */
+:root {
+  --bg: #ffffff;
+  --surface: #f4f6f8;
+  --text: #1a1a1a;        /* on white ~ 16:1 */
+  --text-muted: #4a4a4a;  /* on white ~ 8.9:1 */
+  --border: #c4ccd4;
+  --accent: #1a5a96;      /* on white ~ 7.1:1; white on accent ~ 7.1:1 */
+  --accent-hover: #134e83;
+  --danger: #b00020;      /* on white ~ 7.3:1 */
+  --focus: #0b3d91;
+
+  --radius: 8px;
+  --gap: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.app__header h1 {
+  margin: 0 0 0.25rem;
+}
+
+.app__header p {
+  margin: 0 0 1.5rem;
+  color: var(--text-muted);
+}
+
+.app__main {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(0, 1.4fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .app__main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Strong, visible focus on every interactive element. */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Cards ---- */
+.activity-form,
+.dashboard,
+.methodology {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.activity-form h2,
+.dashboard h2 {
+  margin-top: 0;
+}
+
+/* ---- Form ---- */
+.category-fieldset {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem 1rem;
+}
+
+.category-fieldset legend {
+  font-weight: 600;
+  padding: 0 0.4rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.field label {
+  font-weight: 500;
+}
+
+.field input {
+  font: inherit;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.field input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.field-error {
+  margin: 0;
+  color: var(--danger);
+  font-size: 0.875rem;
+}
+
+/* ---- Buttons ---- */
+button {
+  cursor: pointer;
+  font: inherit;
+}
+
+.primary-btn {
+  background: var(--accent);
+  color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+}
+
+.primary-btn:hover {
+  background: var(--accent-hover);
+}
+
+.icon-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  width: 2rem;
+  height: 2rem;
+  line-height: 1;
+  font-size: 1.1rem;
+}
+
+.icon-btn:hover {
+  background: #e9edf1;
+}
+
+/* ---- Toggle ---- */
+.toggle {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.toggle__btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  color: var(--text);
+}
+
+.toggle__btn[aria-pressed='true'] {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+/* ---- Totals ---- */
+.grand-total {
+  margin: 0 0 1rem;
+}
+
+.grand-total__value {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.grand-total__unit {
+  color: var(--text-muted);
+}
+
+/* ---- Tip ---- */
+.tip-panel {
+  background: #eaf3fb;
+  border: 1px solid #b9d4ee;
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.tip-panel h3 {
+  margin-top: 0;
+}
+
+/* ---- Tables ---- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.5rem 0 1.25rem;
+}
+
+caption {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+}
+
+thead th {
+  background: #e9edf1;
+}
+
+td {
+  font-variant-numeric: tabular-nums;
+}
+
+.swatch {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 3px;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+}
+
+/* ---- History ---- */
+.entry-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.entry__total {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+.entry__note {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ---- Methodology ---- */
+.methodology {
+  margin-top: 1.5rem;
+}
+
+.methodology summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.methodology a {
+  color: var(--accent);
+}
+
+.chart {
+  width: 100%;
+}
+
+.chart-loading {
+  color: var(--text-muted);
+}

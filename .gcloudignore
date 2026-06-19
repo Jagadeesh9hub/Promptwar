@@ -1,0 +1,10 @@
+# Files NOT uploaded to Cloud Build when running `gcloud run deploy --source .`
+# (must keep package.json, package-lock.json, src/, Dockerfile, nginx.conf, etc.)
+.git
+.gitignore
+node_modules
+dist
+coverage
+*.log
+.vscode
+.idea

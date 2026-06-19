@@ -1,0 +1,14 @@
+node_modules
+dist
+coverage
+.git
+.gitignore
+.github
+.vscode
+.idea
+*.log
+Dockerfile
+.dockerignore
+.gcloudignore
+README.md
+DEPLOY.md

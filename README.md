@@ -34,6 +34,7 @@
   - [Accessibility Implementation](#5-accessibility-implementation)
   - [Testing Strategy](#6-testing-strategy)
 - [Emission Factors & Sources](#emission-factors--sources)
+- [Deployment](#deployment)
 
 ---
 
@@ -389,4 +390,17 @@ Defined once in [`src/constants/emissions.ts`](src/constants/emissions.ts) and s
 - **Meals:** 50/day per type · **Waste:** 1 000 kg/day.
 
 ---
+
+## Deployment
+
+Containerized and deployed to **Google Cloud Run** (HTTPS, scales to zero). The image is a multi-stage build — Vite build → nginx — serving on port `8080` with an SPA fallback, year-long immutable caching for hashed assets, and security headers (CSP, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`). See [`Dockerfile`](Dockerfile) and [`nginx.conf`](nginx.conf).
+
+```bash
+# From Cloud Shell (gcloud already authenticated):
+git clone https://github.com/Jagadeesh9hub/Promptwar.git && cd Promptwar
+gcloud run deploy carbon-footprint-tracker \
+  --source . --region us-central1 --allow-unauthenticated --port 8080
+```
+
+Full instructions — project setup, redeploy, and cost notes — are in [`DEPLOY.md`](DEPLOY.md).
 

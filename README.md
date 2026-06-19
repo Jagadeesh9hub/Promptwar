@@ -390,6 +390,3 @@ Defined once in [`src/constants/emissions.ts`](src/constants/emissions.ts) and s
 
 ---
 
-<div align="center">
-<sub>Built with React 18 · TypeScript · Vite — pure logic, strict types, accessible UI.</sub>
-</div>
